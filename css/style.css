@@ -1,0 +1,154 @@
+:root {
+    --cor-fundo: #121212;
+    --cor-texto: #e0e0e0;
+    --cor-destaque: #c62828; /* Um vermelho automotivo para botões e links */
+    --cor-fundo-secao: #1e1e1e;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}s
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+/* Cabeçalho e Navegação */
+header {
+    background-color: #0a0a0a;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid var(--cor-destaque);
+}
+
+header h1 {
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--cor-destaque);
+}
+
+/* Estrutura Principal das Seções */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    background-color: var(--cor-fundo-secao);
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+    border-left: 4px solid var(--cor-destaque);
+    padding-left: 15px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+/* Artigos (Cards de Serviços e Peças) */
+article {
+    background-color: #2a2a2a;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border-left: 2px solid #444;
+}
+
+article h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+/* Botões Customizados */
+button {
+    background-color: var(--cor-destaque);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #b71c1c; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Formulário de Orçamento */
+fieldset {
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+    color: var(--cor-destaque);
+    text-transform: uppercase;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #121212;
+    border: 1px solid #444;
+    color: var(--cor-texto);
+    border-radius: 4px;
+    box-sizing: border-box; /* Evita que o padding quebre a largura do campo */
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0a0a0a;
+    border-top: 1px solid #333;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
