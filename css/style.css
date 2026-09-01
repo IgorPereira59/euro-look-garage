@@ -152,3 +152,7 @@ footer {
     margin-top: 40px;
     font-size: 0.9rem;
 }
+/* Correção de contraste do texto */
+h1, h2, p, label, footer {
+    color: var(--cor-texto);
+}
