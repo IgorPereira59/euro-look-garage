@@ -81,7 +81,77 @@
             </video>
         </section>
     </main>
+<!-- AULA 05: Recursos Gráficos (SVG e Canvas) -->
+      <section id="graficos-aula5">
+        <h2>Performance e Destaque</h2>
 
+        <!-- 1. SVG: Modo Retido (Retained Mode). 
+             Ideal para ícones/selos, não perde resolução e é acessível. -->
+        <article class="selo-destaque">
+          <h3>Selo de Qualidade Euro-Look</h3>
+          <svg viewBox="0 0 120 60" width="120" height="60" role="img" aria-labelledby="tituloSelo">
+            <title id="tituloSelo">Selo: Qualidade Euro-Look Premium</title>
+            <!-- Fundo azul -->
+            <rect x="5" y="5" width="110" height="50" rx="8" fill="#1F4E79" />
+            <!-- Forma de estrela/polígono laranja -->
+            <polygon points="20,30 26,42 40,42 29,50 33,62 20,54 7,62 11,50 0,42 14,42" fill="#FF8C00" transform="translate(0,-5)"/>
+            <!-- Texto vetorial -->
+            <text x="32" y="38" font-size="12" fill="#FFFFFF" font-weight="bold">PREMIUM</text>
+          </svg>
+        </article>
+
+        <!-- 2. CANVAS: Modo Imediato (Immediate Mode). 
+             Ideal para gráficos gerados dinamicamente. -->
+        <article class="grafico-dinamico">
+          <h3>Ganho Estimado de Cavalaria (cv)</h3>
+          
+          <canvas id="grafico-cavalaria" width="320" height="180" role="img" aria-label="Gráfico de barras mostrando ganhos: Filtro Esportivo 5cv, Remap 15cv, Coletor Dimensionado 10cv.">
+            <!-- Fallback Content obrigatório para acessibilidade -->
+            <p>O gráfico exibe os seguintes ganhos: Filtro Esportivo (5cv), Remap (15cv) e Coletor Dimensionado (10cv).</p>
+          </canvas>
+        </article>
+      </section>
+
+      <!-- Script embutido para desenhar e animar o Canvas (Exigência Aula 05) -->
+      <script>
+        const canvas = document.getElementById('grafico-cavalaria');
+        const ctx = canvas.getContext('2d');
+        
+        // Dados: Filtro (5cv), Remap (15cv), Coletor (10cv) multiplicados por 10 para a escala em pixels
+        const ganhos = [50, 150, 100]; 
+        let alturaAtual = 0;
+        const alturaMaxima = Math.max(...ganhos);
+
+        function animarGrafico() {
+          // clearRect: essencial para o modo imediato, limpa o frame anterior para não deixar rasto
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          alturaAtual += 2;
+          
+          // Barra 1: Filtro Esportivo (Azul)
+          ctx.fillStyle = '#1F4E79';
+          let alt1 = Math.min(alturaAtual, ganhos[0]);
+          ctx.fillRect(30, 180 - alt1, 40, alt1);
+          
+          // Barra 2: Remap (Laranja)
+          ctx.fillStyle = '#FF8C00';
+          let alt2 = Math.min(alturaAtual, ganhos[1]);
+          ctx.fillRect(90, 180 - alt2, 40, alt2);
+          
+          // Barra 3: Coletor Dimensionado (Verde)
+          ctx.fillStyle = '#107C41';
+          let alt3 = Math.min(alturaAtual, ganhos[2]);
+          ctx.fillRect(150, 180 - alt3, 40, alt3);
+          
+          // Continua a animação até a barra mais alta atingir o limite
+          if (alturaAtual < alturaMaxima) {
+            requestAnimationFrame(animarGrafico);
+          }
+        }
+
+        // Inicia a animação
+        animarGrafico();
+      </script>
     <footer>
         <p>&copy; 2026 Euro-Look Garage. Todos os direitos reservados.</p>
     </footer>
