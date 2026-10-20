@@ -46,6 +46,25 @@
                 <button type="button">Ver Detalhes</button>
             </article>
         </section>
+        <!-- AULA 04: Recursos Multimédia -->
+      <section id="midia">
+        <h2>Projeto em Ação: Suspensão e Motor</h2>
+        <article class="video-demonstracao">
+          <h3>Ronco do Vectra GLS (Coletor Dimensionado)</h3>
+          
+          <!-- O professor exige poster e preload -->
+          <video controls width="100%" style="max-width: 720px;" poster="assets/images/poster-vectra.jpg" preload="metadata">
+            <!-- Fallback de formatos (o navegador tenta o MP4, se não conseguir tenta o WebM) -->
+            <source src="assets/videos/ronco-vectra.mp4" type="video/mp4">
+            <source src="assets/videos/ronco-vectra.webm" type="video/webm">
+            
+            <!-- Legenda para acessibilidade (exigência da Aula 04) -->
+            <track kind="subtitles" src="assets/legendas/ronco-vectra-pt.vtt" srclang="pt" label="Português" default>
+            
+            <p>O seu navegador não suporta vídeo HTML5. <a href="assets/videos/ronco-vectra.mp4">Descarregue o vídeo aqui</a>.</p>
+          </video>
+        </article>
+      </section>
     </main>
 
     <footer>
