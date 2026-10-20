@@ -46,6 +46,64 @@
                 <button type="button">Ver Detalhes</button>
             </article>
         </section>
+        <!-- Secção de Orçamento (Aula 10: Formulários) -->
+         <!-- Secção de Demonstração e Mídia (Aulas 04 e 05) -->
+  <section id="demonstracao">
+    <h2>Demonstração em Ação</h2>
+    <article>
+      <h3>Ouvir o Motor GM Família II Otimizado</h3>
+      <p>Confira o resultado do nosso trabalho de preparação num Vectra GLS. (Ative as legendas no reprodutor).</p>
+      
+      <!-- Vídeo responsivo com legenda VTT -->
+      <video width="100%" controls preload="metadata">
+        <source src="assets/videos/ronco-vectra.mp4" type="video/mp4">
+        <!-- Legenda exigida na Aula 05 -->
+        <track src="ronco-vectra-pt.vtt" kind="subtitles" srclang="pt-BR" label="Português" default>
+        O seu navegador não suporta a tag de vídeo.
+      </video>
+    </article>
+
+    <article style="margin-top: 2rem;">
+      <h3>Projeto Recente: Vectra Euro-Look</h3>
+      <p>Exemplo de *fitment* perfeito e estética desportiva.</p>
+      <!-- Imagem do Vectra -->
+      <img src="assets/images/vectra.jpg" alt="Vectra customizado estilo Euro-Look" style="width: 100%; border-radius: 8px; border: 2px solid #d32f2f;">
+    </article>
+  </section>
+  <section id="orcamento">
+    <h2>Solicitar Orçamento</h2>
+    <form id="form-orcamento">
+      <div class="campo">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+      </div>
+
+      <div class="campo">
+        <label for="peca">Peça / Serviço de Interesse:</label>
+        <select id="peca" name="peca" required>
+          <option value="">Selecione uma opção...</option>
+          <option value="comando">Comando de Válvulas 2.0 8V (GM Família II)</option>
+          <option value="bodykit">Kit Para-choque Euro-look Vectra GLS</option>
+          <option value="suspensao">Suspensão Ajustável Coilover</option>
+          <option value="outro">Outra Peça / Projeto Especial</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="mensagem">Detalhes do Projeto:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o ano do veículo, motorização ou dúvida..."></textarea>
+      </div>
+
+      <button type="submit" id="btn-enviar">Enviar Solicitação</button>
+    </form>
+
+    <div id="mensagem-sucesso" class="feedback-oculto"></div>
+  </section>
     </main>
 
     <footer>
@@ -53,4 +111,34 @@
     </footer>
 
 </body>
+<!-- ===== AULA 09 E 10: JAVASCRIPT E EVENTOS ===== -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        
+        // AULA 09: Manipulação do DOM - Clique nos botões "Ver Detalhes"
+        const botoesDetalhes = document.querySelectorAll('article button');
+        botoesDetalhes.forEach((botao) => {
+          botao.addEventListener('click', (e) => {
+            const card = e.target.closest('article');
+            const tituloPeca = card.querySelector('h3').innerText;
+            alert(`Peça selecionada: ${tituloPeca}\n\nPreencha o formulário abaixo!`);
+            document.querySelector('#orcamento').scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+
+        // AULA 10: Evento de submissão do Formulário
+        const formOrcamento = document.getElementById('form-orcamento');
+        const divMensagem = document.getElementById('mensagem-sucesso');
+
+        if (formOrcamento) {
+          formOrcamento.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o ecrã de piscar (recarregar)
+            
+            divMensagem.innerHTML = `<p><strong>Obrigado!</strong> A sua solicitação foi enviada.</p>`;
+            divMensagem.style.display = 'block';
+            formOrcamento.reset();
+          });
+        }
+      });
+    </script>
 </html>

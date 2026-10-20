@@ -148,3 +148,52 @@ article p {
   margin-bottom: 1rem;
   font-size: 0.95rem;
 }
+/* ===== AULA 10: FORMULÁRIOS E FEEDBACK ===== */
+#orcamento {
+  grid-column: 1 / -1;
+  background-color: var(--cor-card);
+  padding: 2rem;
+  border-radius: var(--raio);
+  border: 1px solid #2a2a2a;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.campo label {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  color: var(--cor-texto);
+}
+
+.campo input, 
+.campo select, 
+.campo textarea {
+  padding: 0.8rem;
+  border-radius: var(--raio);
+  border: 1px solid #333;
+  background-color: #121212;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.campo input:focus, 
+.campo select:focus, 
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 5px rgba(211, 47, 47, 0.5);
+}
+
+#mensagem-sucesso {
+  display: none;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #1b5e20;
+  border: 1px solid #4caf50;
+  border-radius: var(--raio);
+  color: #ffffff;
+}
