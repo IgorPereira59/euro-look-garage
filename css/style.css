@@ -1,14 +1,21 @@
 /* css/style.css */
 
 :root {
-  --cor-primaria: #d32f2f; /* Vermelho desportivo Euro-Look */
-  --cor-secundaria: #000000; /* Preto sólido */
-  --cor-fundo: #121212; /* Fundo escuro (quase preto) para dar destaque */
-  --cor-card: #1e1e1e; /* Preto um pouco mais claro para os painéis das peças */
-  --cor-texto: #ffffff; /* Texto branco para leitura no fundo escuro */
-  --cor-texto-suave: #aaaaaa; /* Branco mais suave para subtítulos */
-  --raio: 8px; 
-  --sombra: 0 4px 12px rgba(211, 47, 47, 0.2); /* Sombra levemente avermelhada */
+  --cor-primaria: #d32f2f;
+  /* Vermelho desportivo Euro-Look */
+  --cor-secundaria: #000000;
+  /* Preto sólido */
+  --cor-fundo: #121212;
+  /* Fundo escuro (quase preto) para dar destaque */
+  --cor-card: #1e1e1e;
+  /* Preto um pouco mais claro para os painéis das peças */
+  --cor-texto: #ffffff;
+  /* Texto branco para leitura no fundo escuro */
+  --cor-texto-suave: #aaaaaa;
+  /* Branco mais suave para subtítulos */
+  --raio: 8px;
+  --sombra: 0 4px 12px rgba(211, 47, 47, 0.2);
+  /* Sombra levemente avermelhada */
 }
 
 body {
@@ -17,20 +24,27 @@ body {
   color: var(--cor-texto);
   line-height: 1.6;
 }
+
 /* Espaçamento geral para o conteúdo não ficar colado às bordas */
-header, main, footer {
+header,
+main,
+footer {
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin-bottom: 1rem;
 }
 
 /* Estilização dos Links (Regra LoVe/HAte da Aula 06) */
-a:link, a:visited {
-  color: var(--cor-primaria); /* Ficam com o Vermelho Desportivo */
+a:link,
+a:visited {
+  color: var(--cor-primaria);
+  /* Ficam com o Vermelho Desportivo */
   text-decoration: none;
 }
 
@@ -39,7 +53,8 @@ a:hover {
 }
 
 a:active {
-  color: var(--cor-texto); /* Ficam brancos ao clicar */
+  color: var(--cor-texto);
+  /* Ficam brancos ao clicar */
 }
 
 /* Estilização dos botões "Ver Detalhes" */
@@ -57,8 +72,10 @@ button {
 }
 
 button:hover {
-  background-color: #b71c1c; /* Vermelho ligeiramente mais escuro no hover */
+  background-color: #b71c1c;
+  /* Vermelho ligeiramente mais escuro no hover */
 }
+
 /* Estilização do Cabeçalho com Flexbox (Aulas 07 e 08) */
 header {
   display: flex;
@@ -68,19 +85,23 @@ header {
   padding: 1.5rem 2rem;
   border-bottom: 2px solid var(--cor-primaria);
   /* A linha abaixo anula o padding geral que colocamos antes só para o header */
-  max-width: 100%; 
+  max-width: 100%;
 }
 
 header h1 {
-  margin-bottom: 0; /* Remove a margem inferior para centralizar perfeitamente */
+  margin-bottom: 0;
+  /* Remove a margem inferior para centralizar perfeitamente */
   color: var(--cor-primaria);
 }
 
 header nav ul {
   display: flex;
-  gap: 2rem; /* Espaço entre os links */
-  list-style: none; /* Remove as bolinhas da lista */
+  gap: 2rem;
+  /* Espaço entre os links */
+  list-style: none;
+  /* Remove as bolinhas da lista */
 }
+
 /* ===== AULA 08: FIXAR A NAVBAR NO TOPO (STICKY) ===== */
 header {
   position: sticky;
@@ -148,6 +169,7 @@ article p {
   margin-bottom: 1rem;
   font-size: 0.95rem;
 }
+
 /* ===== AULA 10: FORMULÁRIOS E FEEDBACK ===== */
 #orcamento {
   grid-column: 1 / -1;
@@ -169,8 +191,8 @@ article p {
   color: var(--cor-texto);
 }
 
-.campo input, 
-.campo select, 
+.campo input,
+.campo select,
 .campo textarea {
   padding: 0.8rem;
   border-radius: var(--raio);
@@ -180,8 +202,8 @@ article p {
   font-size: 1rem;
 }
 
-.campo input:focus, 
-.campo select:focus, 
+.campo input:focus,
+.campo select:focus,
 .campo textarea:focus {
   outline: none;
   border-color: var(--cor-primaria);
@@ -196,4 +218,91 @@ article p {
   border: 1px solid #4caf50;
   border-radius: var(--raio);
   color: #ffffff;
+}
+
+/* ==========================================================================
+   AULA 11 e 12: ESTILIZAÇÃO DOS ELEMENTOS GERADOS POR JAVASCRIPT
+   ========================================================================== */
+
+/* Faz as grelhas dinâmicas ocuparem toda a largura da secção */
+.grade-pecas {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-peca .preco {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.btn-favoritar {
+  background-color: transparent;
+  color: var(--cor-texto-suave);
+  border: 1px solid var(--cor-texto-suave);
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.btn-favoritar:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.btn-favoritar[aria-pressed="true"] {
+  border-color: #f1c40f;
+  background-color: rgba(241, 196, 15, 0.1);
+}
+
+.btn-detalhes {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+/* Painel de Estatísticas */
+.painel-resumo {
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-left: 4px solid var(--cor-primaria);
+  padding: 1.5rem 2rem;
+  border-radius: var(--raio);
+  margin-bottom: 2rem;
+  grid-column: 1 / -1;
+}
+
+.painel-resumo h3 {
+  color: var(--cor-primaria);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.painel-resumo ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.painel-resumo li {
+  background-color: #252525;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.feedback-visivel {
+  display: block !important;
 }
